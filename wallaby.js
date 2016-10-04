@@ -13,10 +13,8 @@ var webpackPostprocessor = wallabyWebpack({
       {test: /karma-require/, loader: 'null'},
       { test: /\.jade$/, loader: 'pug-html-loader' },
       {test: /\.(scss|sass)$/, loader: 'null'},
-    ],
-    // plugins: [
-    //   new webpack.NormalModuleReplacementPlugin(/\.(scss|sass)$/, path.resolve('./', './empty-module.js'))
-    // ]
+      {test: /\.json$/, loader: 'json-loader'},
+    ]
   }
 });
 
@@ -30,9 +28,11 @@ module.exports = function () {
       {pattern: 'src/**/*.css', load: false},
       {pattern: 'src/**/*.html', load: false},
       {pattern: 'src/**/*.jade', load: false},
+      {pattern: 'src/**/*.json', load: false},
       {pattern: 'src/**/*.sass', load: false},
       {pattern: 'src/**/*.scss', load: false},
-      {pattern: 'src/**/*spec.ts', ignore: true}
+      {pattern: 'src/**/*spec.ts', ignore: true},
+      {pattern: 'src/**/*.d.ts', ignore: true}
     ],
 
     tests: [
